@@ -4,6 +4,7 @@ from .models import Masterdata
 # Create your views here.
 
 def saleshome(request):
+        
     return render(request, "sales/saleshome.html")
 
 def adddata(request):
