@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Masterdata(models.Model):
-    c_id = models.BigAutoField(primary_key=True) 
+    c_id = models.AutoField(primary_key=True)
     name_of_customer = models.CharField(max_length=200, default='name')
     address_of_customer = models.CharField(max_length=200, default='address')
     number_of_customer = models.IntegerField(blank=True)

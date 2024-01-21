@@ -3,4 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.saleshome),
+    path('add', views.adddata),
+    path('insert', views.insert),
 ]

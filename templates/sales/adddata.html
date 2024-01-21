@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block status %}/login{% endblock %}
+{% block stat %}login{% endblock stat %}
+
+{% block body %}
+<form method="post" action="insert">
+    {% csrf_token %}
+    <label for="name">Name:</label><br>
+    <input type="text" id="name_of_customer" name="name_of_customer" required><br>
+    <label for="address">Address:</label><br>
+    <input type="text" id="address_of_customer" name="address_of_customer" required><br>
+    <label for="number">Phone Number:</label><br>
+    <input type="tel" id="number_of_customer" name="number_of_customer" required><br>
+    <label for="interested_model">Interested Model:</label><br>
+    <select id="interested_model" name="interested_model">
+    <option value="atto 3 advanced">Atto 3 Advanced</option>
+    <option value="atto 3 superior">Atto 3 Superior</option>
+    <option value="atto 3 premium">Atto 3 Premium</option>
+    <option value="dolphin">Dolphin</option>
+    <option value="e3">E3</option>
+    <option value="e6">E6</option>
+    <option value="m3">M3</option>
+    <option value="seal">Seal</option>
+    </select><br>
+    <label for="reference">Reference:</label><br>
+    <input type="text" id="reference" name="reference" required><br>
+    <label for="followup_date">Follow-up Date:</label><br>
+    <input type="date" id="followup_date" name="followup_date" required><br>
+    <label for="status">Status:</label><br>
+    <select id="status" name="status">
+    <option value="hot">Hot</option>
+    <option value="cold">Cold</option>
+    <option value="warm">Warm</option>
+    </select><br>
+    <label for="lead_by">Lead By:</label><br>
+    <select id="lead_by" name="lead_by">
+    <option value="generate">Generate</option>
+    <option value="walk in">Walk IN</option>
+    </select><br>
+    <label for="book_status">Book Status:</label><br>
+    <input type="radio" name="book_status" id="book_status" value="yes">Yes
+    <input type="radio" name="book_status" value="no">No<br>
+    <label for="test_drive">Test Drive:</label><br>
+    <input type="radio" name="test" id="test_drive" value="yes">Yes
+    <input type="radio" name="test" id="test_drive" value="no">No<br>
+    <a href="submit"> <input type="submit" value="Submit"></a>
+    
+    </form>
+{% endblock body %}
