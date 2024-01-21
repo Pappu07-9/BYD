@@ -23,4 +23,5 @@ urlpatterns = [
     path('', views.index, name='homepage'),
     path('login/', views.login),
     path('logout', views.logout),
+    path('userhome', include("callcenter.urls")),
 ]
