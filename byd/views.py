@@ -26,6 +26,6 @@ def authene(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponse("Hello Ji")
-            
+            return render(request,"userhomepage/index.html")
+    messages.error(request,"Try Again")        
     return render(request,'login/login.html')

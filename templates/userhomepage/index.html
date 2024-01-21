@@ -3,6 +3,8 @@
 {% block status %}/logout{% endblock status %}
 {% block stat %}Logout{% endblock stat %}
 {% block body %}
+{{request.user}}
+
     <div class="container">
         <a href="salesofficer">
             <button type="button" class="btn btn-danger">Data Entry</button>
