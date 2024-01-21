@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{% block status %}/logout{% endblock status %}
+{% block stat %}Logout{% endblock stat %}
+
+{% block body %}
+    <div class="container">
+        <a href="/salesofficer/add">
+            <button type="button" class="btn btn-danger">Add Data</button>
+        </a>
+        <a href="/salesofficer/import">
+            <button type="button" class="btn btn-danger">Import</button>
+        </a>
+        <a href="/salesofficer/export">
+            <button type="button" class="btn btn-primary">Export</button>
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sn.</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          
+        </tbody>
+      </table>
+{% endblock body %}
