@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Masterdata
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def saleshome(request):
@@ -9,7 +9,7 @@ def saleshome(request):
 
 def adddata(request):
     return render(request, "sales/adddata.html")
-
+@login_required(login_url="login_page")
 def insert(request):
     if request.method == 'POST':
         nameofcust = request.POST['name_of_customer']
