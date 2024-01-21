@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from django.http import HttpResponse
 
@@ -11,7 +11,8 @@ def index(request):
 def login_page(request):
     return render(request, "login/login.html")
 
-def logout(request):
+def logout_user(request):
+    logout(request)
     return redirect("homepage")
 
 def authene(request):
