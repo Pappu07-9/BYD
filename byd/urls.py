@@ -24,4 +24,6 @@ urlpatterns = [
     path('login/', views.login),
     path('logout', views.logout),
     path('userhome', include("callcenter.urls")),
+    path('salesofficer', include("sales.urls")),
+    path('callcenter', include("callcenter.urls")),
 ]

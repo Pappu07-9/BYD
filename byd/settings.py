@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sales.apps.SalesConfig',
     'callcenter.apps.CallcenterConfig',
     'django.contrib.admin',
     'django.contrib.auth',
