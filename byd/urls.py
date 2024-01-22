@@ -27,4 +27,5 @@ urlpatterns = [
     path('salesofficer/', include("sales.urls")),
     path('callcenter', include("callcenter.urls")),
     path('authenticate', views.authene, name = 'authenticate'),
+    path('userhomepage', views.homepage, name="homepage")
 ]

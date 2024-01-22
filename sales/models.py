@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
 # Create your models here.
 class Masterdata(models.Model):
     userid = models.ForeignKey(User,on_delete=models.DO_NOTHING, null = True, blank = True)
@@ -38,3 +42,4 @@ class Masterdata(models.Model):
             )
     book_status = models.BooleanField(default=False)
     test_drive = models.BooleanField(default=False)
+
