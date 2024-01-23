@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block status %}/logout_user{% endblock %}
+{% block stat %}Logout{% endblock stat %}
+
+{% block body%}
+<form method="post" action="/salesofficer/update_edit/{{id}}">
+    {% csrf_token %}
+    <input type="hidden" name="userid" value="{{data.usertracker}}"><br>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name_of_customer" name="updatedname" value="{{data.name_of_customer}}" required><br>
+    <label for="address">Address:</label><br>
+    <input type="text" id="address_of_customer" name="updatedadd"  value="{{data.address_of_customer}}" required><br>
+    <label for="number">Phone Number:</label><br>
+    <input type="tel" id="number_of_customer" name="updatednumber" value="{{data.number_of_customer}}" required><br>
+    <label for="interested_model">Interested Model:</label><br>
+    <select id="interested_model" name="updatedinterest" value="{{data.interested_model}}">
+    <option value="atto 3 advanced">Atto 3 Advanced</option>
+    <option value="atto 3 superior">Atto 3 Superior</option>
+    <option value="atto 3 premium">Atto 3 Premium</option>
+    <option value="dolphin">Dolphin</option>
+    <option value="e3">E3</option>
+    <option value="e6">E6</option>
+    <option value="m3">M3</option>
+    <option value="seal">Seal</option>
+    </select><br>
+    <label for="reference">Reference:</label><br>
+    <input type="text" id="reference" value="{{data.reference}}" name="updatedreference" required><br>
+    {% comment %} <label for="followup_date">Follow-up Date:</label><br>
+    <input type="date" id="followup_date" name="followup_date"><br> {% endcomment %}
+    <label for="status">Status:</label><br>
+    <select id="status" value="{{data.status}}" name="updatedstatus">
+    <option value="hot">Hot</option>
+    <option value="cold">Cold</option>
+    <option value="warm">Warm</option>
+    </select><br>
+    <label for="lead_by">Lead By:</label><br>
+    <select id="lead_by" value="{{data.lead_by}}" name="updatedlead">
+    <option value="generate">Generate</option>
+    <option value="walk in">Walk IN</option>
+    </select><br>
+    <label for="book_status">Book Status:</label><br>
+    <input type="radio" name="updatedbookstatus" id="book_status" value="yes">Yes
+    <input type="radio" name="updatedbookstatus" value="no">No<br>
+    <label for="test_drive">Test Drive:</label><br>
+    <input type="radio" name="updatedtest" id="test_drive" value="yes">Yes
+    <input type="radio" name="updatedtest" id="test_drive" value="no">No<br>
+    <input type="submit" value="Submit">
+    
+    </form>
+{% endblock %}

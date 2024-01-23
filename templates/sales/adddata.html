@@ -1,10 +1,11 @@
 {% extends "base.html" %}
-{% block status %}/login{% endblock %}
-{% block stat %}login{% endblock stat %}
+{% block status %}/logout_user{% endblock %}
+{% block stat %}Logout{% endblock stat %}
 
 {% block body %}
 <form method="post" action="insert">
     {% csrf_token %}
+    <input type="hidden" name="userid" value="{{request.user}}"><br>
     <label for="name">Name:</label><br>
     <input type="text" id="name_of_customer" name="name_of_customer" required><br>
     <label for="address">Address:</label><br>
@@ -24,8 +25,8 @@
     </select><br>
     <label for="reference">Reference:</label><br>
     <input type="text" id="reference" name="reference" required><br>
-    <label for="followup_date">Follow-up Date:</label><br>
-    <input type="date" id="followup_date" name="followup_date" required><br>
+    {% comment %} <label for="followup_date">Follow-up Date:</label><br>
+    <input type="date" id="followup_date" name="followup_date"><br> {% endcomment %}
     <label for="status">Status:</label><br>
     <select id="status" name="status">
     <option value="hot">Hot</option>

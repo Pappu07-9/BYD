@@ -1,0 +1,48 @@
+{% extends "base.html"%}
+{% block status %}/logout_user{% endblock status %}
+{% block stat %}Logout{% endblock stat %}
+
+{% block body %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Uploaded By</th>
+      <th scope="col">Name of Customer</th>
+      <th scope="col">Address of Customer</th>
+      <th scope="col">Number</th>
+      {% comment %} <th scope="col">Follow up Date</th> {% endcomment %}
+      <th scope="col">LeadBy</th>
+      <th scope="col">Reference</th>
+      <th scope="col">Status</th>
+      <th scope="col">Interested Model</th>
+      <th scope="col">Book Status</th>
+      <th scope="col">Test Drive</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for datas, range in alldatas %}
+    {% for i in datas %}
+    <tr>
+        <th scope="row">{{i.Id}}</th>
+        <td>{{ i.usertracker }}</td>
+        <td>{{ i.name_of_customer }}</td>
+        <td>{{i.address_of_customer}}</td>
+        <td>{{i.number_of_customer}}</td>
+        {% comment %} <td>{{i.follow_update}}</td> {% endcomment %}
+        <td>{{i.lead_by}}</td>
+        <td>{{i.reference}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.interested_model}}</td>
+        <td>{{i.book_status}}</td>
+        <td>{{i.test_drive}}</td>
+        <td><a href="/salesofficer/edit/{{i.Id}}" class="btn btn-success">edit</a></td>
+        <td><a href="/salesofficer/delete/{{i.Id}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock body %}

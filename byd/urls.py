@@ -22,10 +22,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='homepage'),
     path('login_page/', views.login_page, name='login_page'),
-    path('logout_user', views.logout_user),
+    path('logout_user/', views.logout_user),
     path('userhome', include("callcenter.urls")),
     path('salesofficer/', include("sales.urls")),
-    path('callcenter', include("callcenter.urls")),
-    path('authenticate', views.authene, name = 'authenticate'),
-    path('userhomepage', views.homepage, name="homepage")
+    path('callcenter/', include("callcenter.urls")),
+    path('authenticate/', views.authene, name = 'authenticate'),
+    path('userhomepage', views.homepage, name="homepage1"),
+    path('booking_status', include("booking.urls")),
+    path('testdrive', include("testdrive.urls")),
 ]

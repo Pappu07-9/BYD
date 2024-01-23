@@ -1,13 +1,15 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
+from django.utils.timezone import datetime
 
 User = get_user_model()
 
 # Create your models here.
 class Masterdata(models.Model):
-    userid = models.ForeignKey(User,on_delete=models.DO_NOTHING, null = True, blank = True)
-    c_id = models.AutoField(primary_key=True)
+    Id = models.AutoField(auto_created=True, primary_key=True ,null= False)
+    usertracker = models.CharField(default= "null", max_length=30)
     name_of_customer = models.CharField(max_length=200, default='name')
     address_of_customer = models.CharField(max_length=200, default='address')
     number_of_customer = models.IntegerField(blank=True)
@@ -31,7 +33,7 @@ class Masterdata(models.Model):
             ('walk in', 'walk in'),
             ],
             )
-    follow_update = models.DateField()
+#     follow_update = models.DateField(str("%YYYY-DD_MM%"))
     status = models.CharField(default='warm',
             max_length=200,
             choices=[
@@ -42,4 +44,3 @@ class Masterdata(models.Model):
             )
     book_status = models.BooleanField(default=False)
     test_drive = models.BooleanField(default=False)
-

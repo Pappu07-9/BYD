@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
@@ -16,6 +17,8 @@ def login_page(request):
 def logout_user(request):
     logout(request)
     return redirect("homepage")
+
+@login_required
 def homepage(request):
     return render(request, "userhomepage/index.html")
 
@@ -32,7 +35,7 @@ def authene(request):
 
         if user is not None:
             login(request, user)
-            return redirect('homepage')
+            return redirect('homepage1')
             
     messages.error(request,"Try Again")        
     return render(request,'login/login.html')

@@ -30,6 +30,8 @@ AUTH_USER_MODEL = 'account.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
+    'booking.apps.BookingConfig',
+    'testdrive.apps.TestdriveConfig',
     'account.apps.AccountConfig',
     'sales.apps.SalesConfig',
     'callcenter.apps.CallcenterConfig',
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'byd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'byd',
+        'NAME': 'byd1',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
