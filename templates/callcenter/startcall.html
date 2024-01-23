@@ -3,48 +3,68 @@
 {% block stat %}Logout{% endblock stat %}
 
 {% block body %}
-<div class="container">
-  <a href="/callcenter">
-    <button type="button" class="btn btn-danger">Save</button>
-  </a>
-</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Uploaded By</th>
-      <th scope="col">Name of Customer</th>
-      <th scope="col">Address of Customer</th>
-      <th scope="col">Number</th>
-      <th scope="col">LeadBy</th>
-      <th scope="col">Reference</th>
-      <th scope="col">Status</th>
-      <th scope="col">Interested Model</th>
-      <th scope="col">Book Status</th>
-      <th scope="col">Test Drive</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for datas, range in alldatas %}
-    {% for i in datas %}
-    <tr>
-        <th scope="row">{{i.Id}}</th>
-        <td>{{ i.usertracker }}</td>
-        <td>{{ i.name_of_customer }}</td>
-        <td>{{i.address_of_customer}}</td>
-        <td>{{i.number_of_customer}}</td>
-        <td>{{i.lead_by}}</td>
-        <td>{{i.reference}}</td>
-        <td>{{i.status}}</td>
-        <td>{{i.interested_model}}</td>
-        <td>{{i.book_status}}</td>
-        <td>{{i.test_drive}}</td>
-        <td><a href="/salesofficer/edit/{{i.Id}}" class="btn btn-success">edit</a></td>
-        <td><a href="/salesofficer/delete/{{i.Id}}" class="btn btn-danger">Delete</a></td>
-    </tr>
-    {% endfor %}
-    {% endfor %}
-  </tbody>
-</table>
+{% comment %}
+{% for datas, range in alldatas %}
+{% for i in datas %}
+<tr>
+  <th scope="row">{{i.Id}}</th>
+  <td>{{ i.usertracker }}</td>
+  <td>{{ i.name_of_customer }}</td>
+  <td>{{i.address_of_customer}}</td>
+  <td>{{i.number_of_customer}}</td>
+  <td>{{i.lead_by}}</td>
+  <td>{{i.reference}}</td>
+  <td>{{i.status}}</td>
+  <td>{{i.interested_model}}</td>
+  <td>{{i.book_status}}</td>
+  <td>{{i.test_drive}}</td>
+  <td><a href="/salesofficer/edit/{{i.Id}}" class="btn btn-success">edit</a></td>
+  <td><a href="/salesofficer/delete/{{i.Id}}" class="btn btn-danger">Delete</a></td>
+</tr>
+{% endfor %}
+{% endfor %}
+{% endcomment %}
+  {% for i in datas%}
+  <form method="post" action="inserts">
+    {% csrf_token %}
+    <input type="hidden" name="userid" value="{{request.user}}"><br>
+    <label for="name">Name:</label>
+    <textarea readonly>{{i.name_of_customer}}</textarea><br>
+    <label for="address">Address:</label>
+    <textarea readonly>{{i.address_of_customer}}</textarea><br>
+    <label for="number">Phone Number:</label>
+    <textarea readonly>{{i.number_of_customer}}</textarea><br>
+    <label for="interested_model">Interested Model:</label>
+    <select id="interested_model" name="interested_model" value="{{i.interested_model}}">
+    <option value="atto 3 advanced">Atto 3 Advanced</option>
+    <option value="atto 3 superior">Atto 3 Superior</option>
+    <option value="atto 3 premium">Atto 3 Premium</option>
+    <option value="dolphin">Dolphin</option>
+    <option value="e3">E3</option>
+    <option value="e6">E6</option>
+    <option value="m3">M3</option>
+    <option value="seal">Seal</option>
+    </select><br><br>
+    <label for="reference">Reference:</label>
+    <textarea readonly>{{i.reference}}</textarea><br>
+    <label for="followup_date">Follow-up Date:</label>
+    <input type="date" id="followup_date" name="followup_date"><br>
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+    <option value="hot">Hot</option>
+    <option value="cold">Cold</option>
+    <option value="warm">Warm</option>
+    </select><br>
+    <label for="lead_by">Lead By:</label>
+    <textarea readonly>{{i.lead_by}}</textarea><br>
+    <label for="book_status">Book Status:</label>
+    <input type="radio" name="book_status" id="book_status" value="yes">Yes
+    <input type="radio" name="book_status" value="no">No<br>
+    <label for="test_drive">Test Drive:</label><br>
+    <input type="radio" name="test" id="test_drive" value="yes">Yes
+    <input type="radio" name="test" id="test_drive" value="no">No<br>
+    <a href="submit"> <input type="submit" value="Submit"></a>
+    
+</form>
+  {% endfor %}
 {% endblock body %}

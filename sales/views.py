@@ -26,7 +26,7 @@ def insert(request):
         modelcar = request.POST['interested_model']
         refrence = request.POST['reference']
         status = request.POST['status']
-        # followdate = request.POST['followup_date']
+        followdate = request.POST['followup_date']
         lead_by = request.POST['lead_by']
         bookstatus = request.POST['book_status']
         if bookstatus == 'yes':
@@ -46,42 +46,42 @@ def insert(request):
             newInq.save()
             test = Testdrive.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                        #  follow_update=followdate,
+                         follow_update=followdate,
                          book_status=bookstatus, test_drive=testdrive,usertracker=userid)
             test.save()
             book = Booking.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                        #  follow_update=followdate,
+                         follow_update=followdate,
                          book_status=bookstatus, test_drive=testdrive,usertracker=userid)
             book.save()
             return redirect('saleshome')
         elif testdrive == True:
             newInq = Masterdata.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                        #  follow_update=followdate,
+                         follow_update=followdate,
                          book_status=bookstatus, test_drive=testdrive,usertracker=userid)
             newInq.save()
             test = Testdrive.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                        #  follow_update=followdate,
+                         follow_update=followdate,
                          book_status=bookstatus, test_drive=testdrive,usertracker=userid)
             test.save()
             return redirect('saleshome')
         elif bookstatus == True:
             newInq = Masterdata.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                        #  follow_update=followdate,
+                         follow_update=followdate,
                          book_status=bookstatus, test_drive=testdrive,usertracker=userid)
             newInq.save()
             book = Booking.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                        #  follow_update=followdate,
+                         follow_update=followdate,
                          book_status=bookstatus, test_drive=testdrive,usertracker=userid)
             book.save()
             return redirect('saleshome') 
         newInq = Masterdata.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                        #  follow_update=followdate,
+                         follow_update=followdate,
                          book_status=bookstatus, test_drive=testdrive,usertracker=userid)
         newInq.save()
         print('successful insert')
@@ -113,6 +113,7 @@ def update_edit(request, id):
         lead_by = request.POST['updatedlead']
         testdrive = request.POST['updatedtest']
         userid = request.POST['userid']
+        follow_update = request.POST['follow_update']
         if testdrive == 'yes':
             testdrive = True
         elif testdrive == 'no':
@@ -131,6 +132,7 @@ def update_edit(request, id):
         data.address_of_customer = address
         data.number_of_customer = number
         data.interested_model = modelcar
+        data.follow_update = follow_update
         data.reference = refrence
         data.status = status
         data.lead_by = lead_by

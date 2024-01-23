@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
     path('', views.callhome, name="callcenterhome"),
     path('regularcall', views.startcall),
+    path('inserts', views.inserts),
 ]
