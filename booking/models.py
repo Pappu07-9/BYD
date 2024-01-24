@@ -1,4 +1,6 @@
+from asyncio.windows_events import NULL
 from django.db import models
+from django.forms import NullBooleanField
 from sales.models import Masterdata
 # Create your models here.
 class Booking(models.Model):
@@ -38,3 +40,4 @@ class Booking(models.Model):
             )
     book_status = models.BooleanField(default=False)
     test_drive = models.BooleanField(default=False)
+    etd = models.CharField(default=None, max_length=100)

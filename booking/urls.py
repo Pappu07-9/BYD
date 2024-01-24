@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.bookingview),
+    path('process/<int:id>',views.process),
 ]

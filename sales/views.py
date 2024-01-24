@@ -20,6 +20,7 @@ def adddata(request):
 def insert(request):
     if request.method == 'POST':
         userid = request.POST['userid']
+        etd = ''
         nameofcust = request.POST['name_of_customer']
         address = request.POST['address_of_customer']
         number = request.POST['number_of_customer']
@@ -51,8 +52,7 @@ def insert(request):
             test.save()
             book = Booking.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                         follow_update=followdate,
-                         book_status=bookstatus, test_drive=testdrive,usertracker=userid)
+                         book_status=bookstatus,etd=etd, test_drive=testdrive,usertracker=userid)
             book.save()
             return redirect('saleshome')
         elif testdrive == True:
@@ -75,8 +75,7 @@ def insert(request):
             newInq.save()
             book = Booking.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,
                          reference=refrence, interested_model=modelcar, lead_by=lead_by, status=status,
-                         follow_update=followdate,
-                         book_status=bookstatus, test_drive=testdrive,usertracker=userid)
+                         book_status=bookstatus,etd=etd, test_drive=testdrive,usertracker=userid)
             book.save()
             return redirect('saleshome') 
         newInq = Masterdata.objects.create(name_of_customer=nameofcust, address_of_customer=address, number_of_customer=number,

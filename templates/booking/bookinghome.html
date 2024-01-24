@@ -19,14 +19,15 @@
       <th scope="col">Interested Model</th>
       <th scope="col">Book Status</th>
       <th scope="col">Test Drive</th>
-      <th scope="col">Action</th>
+      <th scope="col">ETD</th>
+      <th scope="col">Booking Process</th>
     </tr>
   </thead>
   <tbody>
     {% for datas, range in alldatas %}
     {% for i in datas %}
     <tr>
-        <th scope="row">{{i.Id}}</th>
+        <th scope="row">{{i.id}}</th>
         <td>{{ i.usertracker }}</td>
         <td>{{ i.name_of_customer }}</td>
         <td>{{i.address_of_customer}}</td>
@@ -38,8 +39,8 @@
         <td>{{i.interested_model}}</td>
         <td>{{i.book_status}}</td>
         <td>{{i.test_drive}}</td>
-        <td><a href="/salesofficer/edit/{{i.Id}}" class="btn btn-success">edit</a></td>
-        <td><a href="/salesofficer/delete/{{i.Id}}" class="btn btn-danger">Delete</a></td>
+        <td>{{i.etd}}</td>
+        <td><a href="/booking/process/{{i.id}}" class="btn btn-success">Process Booking</a></td>
     </tr>
     {% endfor %}
     {% endfor %}

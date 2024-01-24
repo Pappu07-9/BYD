@@ -28,6 +28,6 @@ urlpatterns = [
     path('callcenter/', include("callcenter.urls")),
     path('authenticate/', views.authene, name = 'authenticate'),
     path('userhomepage', views.homepage, name="homepage1"),
-    path('booking_status', include("booking.urls")),
+    path('booking/', include("booking.urls")),
     path('testdrive', include("testdrive.urls")),
 ]
